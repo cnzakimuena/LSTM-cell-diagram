@@ -3,7 +3,7 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning, fit, arrows.meta, shapes}
 
-% used to avoid putting the same thing several times...
+% To avoid repeating same command several times
 % Command \empt{var1}{var2}
 \newcommand{\empt}[2]{$#1^{\langle #2 \rangle}$}
 
@@ -20,13 +20,13 @@
         draw,
         very thick,
         },
-    operator/.style={%For operators like +  and  x
+    operator/.style={% For operators like +  and  x
         circle,
         draw,
         inner sep=-0.5pt,
         minimum height =.2cm,
         },
-    function/.style={%For functions
+    function/.style={% For functions
         ellipse,
         draw,
         inner sep=1pt
@@ -45,7 +45,7 @@
         minimum height=3mm,
         inner sep=1pt
         },
-    mylabel/.style={% something new that I have learned
+    mylabel/.style={
         font=\scriptsize\sffamily
         },
     ArrowC1/.style={% Arrows with rounded corners
@@ -58,7 +58,7 @@
         },
     ]
 
-%Start drawing the thing...    
+% Draw    
     % Draw the cell: 
     \node [cell, minimum height =4cm, minimum width=6cm] at (0,0){} ;
 
@@ -68,7 +68,7 @@
     \node [gt, minimum width=1cm] (ibox3) at (-0.5,-0.75) {Tanh};
     \node [gt] (ibox4) at (0.5,-0.75) {$\sigma$};
 
-   % Draw opérators   named mux# , add# and func#
+   % Draw operators   named mux# , add# and func#
     \node [operator] (mux1) at (-2,1.5) {$\times$};
     \node [operator] (add1) at (-0.5,1.5) {+};
     \node [operator] (mux2) at (-0.5,0) {$\times$};
@@ -85,8 +85,8 @@
     \node[ct, label={[mylabel]Label2}] (h2) at (4,-1.5) {\empt{h}{t}};
     \node[ct, label={[mylabel]left:Label3}] (x2) at (2.5,3) {\empt{h}{t}};
 
-% Start connecting all.
-    %Intersections and displacements are used. 
+% Connect all
+    %Intersections and displacements are used
     % Drawing arrows    
     \draw [ArrowC1] (c) -- (mux1) -- (add1) -- (c2);
 
